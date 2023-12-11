@@ -12,3 +12,4 @@ C:\Users\cfree\workspace\csharp\exercises\linq\obj\Debug\net8.0\refint\linq.dll
 C:\Users\cfree\workspace\csharp\exercises\linq\obj\Debug\net8.0\linq.pdb
 C:\Users\cfree\workspace\csharp\exercises\linq\obj\Debug\net8.0\linq.genruntimeconfig.cache
 C:\Users\cfree\workspace\csharp\exercises\linq\obj\Debug\net8.0\ref\linq.dll
+C:\Users\cfree\workspace\csharp\exercises\linq\obj\Debug\net8.0\linq.sourcelink.json
