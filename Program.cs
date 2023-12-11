@@ -121,6 +121,53 @@
 //     Console.WriteLine(nonsquare);
 // }
 // Build a collection of customers who are millionaires
+// public class Customer
+// {
+//     public string Name { get; set; }
+//     public double Balance { get; set; }
+//     public string Bank { get; set; }
+// }
+
+// public class sillyMilly
+// {
+//     public string ReportName { get; set;}
+//     public double ReportBalance {get; set;}
+//     public string ReportBank { get; set;}
+
+// }
+
+// public class Program
+// {
+//     public static void Main() {
+//         List<Customer> customers = new List<Customer>() {
+//             new Customer(){ Name="Bob Lesman", Balance=80345.66, Bank="FTB"},
+//             new Customer(){ Name="Joe Landy", Balance=9284756.21, Bank="WF"},
+//             new Customer(){ Name="Meg Ford", Balance=487233.01, Bank="BOA"},
+//             new Customer(){ Name="Peg Vale", Balance=7001449.92, Bank="BOA"},
+//             new Customer(){ Name="Mike Johnson", Balance=790872.12, Bank="WF"},
+//             new Customer(){ Name="Les Paul", Balance=8374892.54, Bank="WF"},
+//             new Customer(){ Name="Sid Crosby", Balance=957436.39, Bank="FTB"},
+//             new Customer(){ Name="Sarah Ng", Balance=56562389.85, Bank="FTB"},
+//             new Customer(){ Name="Tina Fey", Balance=1000000.00, Bank="CITI"},
+//             new Customer(){ Name="Sid Brown", Balance=49582.68, Bank="CITI"}
+//         };
+//     IEnumerable<sillyMilly> sillyMillies = (from customer in customers
+//         where customer.Balance >= 1000000
+//         group customer by customer.Name into balanceGroup
+//         select new sillyMilly {
+//             ReportName = balanceGroup.Key.ToString(),
+//             ReportBalance = balanceGroup.Sum(milly => milly.Balance)
+//         }
+//     );
+
+//         // Display each number that was the acceptable size
+//         foreach (sillyMilly c in sillyMillies)
+//         {
+//             Console.WriteLine($"{c.ReportName} has a balance of {c.ReportBalance}");
+//         }
+//     }
+// }
+
 public class Customer
 {
     public string Name { get; set; }
@@ -130,7 +177,7 @@ public class Customer
 
 public class sillyMilly
 {
-    public string ReportName { get; set;}
+    public int ReportName { get; set;}
     public double ReportBalance {get; set;}
     public string ReportBank { get; set;}
 
@@ -153,17 +200,18 @@ public class Program
         };
     IEnumerable<sillyMilly> sillyMillies = (from customer in customers
         where customer.Balance >= 1000000
-        group customer by customer.Name into balanceGroup
+        group customer by customer.Bank into bankGroup
         select new sillyMilly {
-            ReportName = balanceGroup.Key.ToString(),
-            ReportBalance = balanceGroup.Sum(milly => milly.Balance)
+            ReportBank = bankGroup.Key.ToString(),
+            ReportBalance = bankGroup.Sum(milly => milly.Balance),
+            ReportName = bankGroup.Count()
         }
     );
 
         // Display each number that was the acceptable size
         foreach (sillyMilly c in sillyMillies)
         {
-            Console.WriteLine($"{c.ReportName} has a balance of {c.ReportBalance}");
+            Console.WriteLine($"{c.ReportBank} has {c.ReportName} total millionaire customers");
         }
     }
 }
