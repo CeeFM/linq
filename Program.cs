@@ -76,10 +76,47 @@
 
 // Console.WriteLine($"We have made ${s} money you hound dogs!!");
 // What is our most expensive product?
-List<double> prices = new List<double>()
-{
-    879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
-};
+// List<double> prices = new List<double>()
+// {
+//     879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+// };
 
- List<double> sortedNums = prices.OrderBy(n => n).ToList();
- Console.WriteLine($"{sortedNums[sortedNums.Count - 1]} is our most expensive product price");
+//  List<double> sortedNums = prices.OrderBy(n => n).ToList();
+//  Console.WriteLine($"{sortedNums[sortedNums.Count - 1]} is our most expensive product price");
+
+List<int> wheresSquaredo = new List<int>()
+{
+    66, 12, 8, 27, 82, 34, 7, 50, 19, 46, 81, 23, 30, 4, 68, 14
+};
+/*
+    Store each number in the following List until a perfect square
+    is detected.
+
+    Expected output is { 66, 12, 8, 27, 82, 34, 7, 50, 19, 46 } 
+
+    Ref: https://msdn.microsoft.com/en-us/library/system.math.sqrt(v=vs.110).aspx
+*/
+
+List<int> nonSquares = [];
+List<int> squares = [];
+
+
+// Console.WriteLine(doubleString.Contains("."));
+
+for (int i=0; i < wheresSquaredo.Count; i++) {
+string doubleString = Math.Sqrt(wheresSquaredo[i]).ToString();
+    if (doubleString.Contains("."))
+    {
+        nonSquares.Add(wheresSquaredo[i]);
+    }
+    else
+    {
+        squares.Add(wheresSquaredo[i]);
+        break;
+    }
+}
+
+foreach (int nonsquare in nonSquares)
+{
+    Console.WriteLine(nonsquare);
+}
